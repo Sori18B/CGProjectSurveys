@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import FormularioVacio from './FormularioVacio';
-import FormularioRegistro from './FormularioRegistro';
-import FormularioEncuesta from './FormularioEncuesta';
-import Principal from  './Index';
+import FormularioEncuestas from './Pages/FormularioVacio';
+import FormularioRegistro from './Pages/FormularioRegistro';
+import FormularioEncuesta from './Pages/FormularioEncuesta';
+import Principal from  './Principal';
 
 const Navbar = () => {
     return (
@@ -31,7 +31,7 @@ const Navbar = () => {
                     </div>
                 </nav>
                 <Routes>
-                    <Route path="/vacio" element={<FormularioVacio />} />
+                    <Route path="/vacio" element={<FormularioEncuestas />} />
                     <Route path="/registro" element={<FormularioRegistro />} />
                     <Route path="/encuesta" element={<FormularioEncuesta />} />
 

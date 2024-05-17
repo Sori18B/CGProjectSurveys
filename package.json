@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@firebase/firestore": "^4.6.2",
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "bootstrap": "^5.3.3",
+    "firebase": "^10.12.0",
+    "font-awesome": "^4.7.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
