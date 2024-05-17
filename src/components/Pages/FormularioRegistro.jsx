@@ -83,6 +83,6 @@ const FormularioRegistro = () => {
             </form>
         </div>
     );
-};
+}
 
 export default FormularioRegistro;

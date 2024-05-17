@@ -1,6 +1,7 @@
-import { db } from './firebaseConfig'; // Importar la instancia de Firestore desde el archivo de configuración
+import { db } from './firebaseConfig'; 
 import { addDoc, collection, updateDoc, arrayUnion } from "firebase/firestore";
 
+// Tu código para crear y enviar respuestas aquí
 export const createFormulario = async (titulo, descripcion, usuarioID, preguntas) => {
   try {
     const docRef = await addDoc(collection(db, 'formularios'), {
@@ -21,15 +22,29 @@ export const createFormulario = async (titulo, descripcion, usuarioID, preguntas
   }
 };
 
-export const submitRespuestas = async (formularioID, usuarioID, respuestas) => {
+export const submitRespuestas = async (usuarioID, respuestas) => {
   try {
-    const docRef = await addDoc(collection(db, 'respuestas'), {
-      formularioID: formularioID,
+    await addDoc(collection(db, 'respuestas'), {
       usuarioID: usuarioID,
-      respuestas: respuestas // Array de objetos con 'preguntaID' y 'respuesta'
+      respuestas: respuestas
     });
-    console.log('Respuestas enviadas con ID: ', docRef.id);
+    console.log('Respuestas enviadas correctamente');
   } catch (error) {
     console.error('Error enviando respuestas: ', error);
+    throw error;
   }
 };
+
+export const submitRespuestasCues = async (usuarioID, respuestas) => {
+  try {
+    await addDoc(collection(db, 'respuestasCues'), {
+      usuarioID: usuarioID,
+      respuestas: respuestas
+    });
+    console.log('Respuestas del cuestionario enviadas correctamente');
+  } catch (error) {
+    console.error('Error al enviar respuestas del cuestionario:', error);
+    throw error;
+  }
+};
+
